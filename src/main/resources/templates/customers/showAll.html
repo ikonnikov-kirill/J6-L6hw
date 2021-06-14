@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers</title>
+</head>
+
+<body>
+
+<h2>Customers</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>
+            Name
+        </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${customers.isEmpty()}">
+        <td colspan="2"> No Customers Available</td>
+    </tr>
+    <tr th:each="customer : ${customers}">
+        <td><a th:href="@{/customers/{id}(id = ${customer.getId()})}" th:text="${customer.getName()}">product</a></td>
+
+    </tr>
+
+    </tbody>
+</table>
+
+</body>
+</html>
